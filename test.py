@@ -73,16 +73,32 @@
 # print(t2)
 
 #5.条件判断
-a = input('age : ')
-age = int(a)
-if age >= 40:
-    print('old')
-elif age >= 20:
-    print('young')
-elif age >= 18:
-    print('adult')
-else :
-    print('kid')
+# a = input('age : ')
+# age = int(a)
+# if age >= 40:
+#     print('old')
+# elif age >= 20:
+#     print('young')
+# elif age >= 18:
+#     print('adult')
+# else :
+#     print('kid')
 
+#6.循环
 
+sum = 0
+for i in list(range(101)):
+    sum = sum + i
+print(sum)
+
+ 
+n = 5
+
+while n > 0:
+    sum = sum + n
+    n = n - 1
+    if n == 3:
+        continue
+    
+print(sum)
 
