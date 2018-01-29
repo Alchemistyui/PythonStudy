@@ -125,8 +125,47 @@
 # print(s | s2)
 
 
+#8.函数
+def my_abs(x):
+    if not isinstance(x, (int,float)): 
+        raise TypeError('bad operand type')
+    if x >= 0:
+        return x
+    else:
+        return -x
 
+print(my_abs(-233))
 
+def null_fun():
+    pass
 
+def nextTwo(x=1):
+    if not isinstance(x, int):
+        raise TabError('bad operand type')
+    return x+1, x+2
+#默认参数必须指向不变对象！
+x,y = nextTwo()
+print(x,y)
 
+def summit(*number):
+    sum = 0
+    for i in number:
+        sum = sum + i 
+    return sum
 
+nums = [1,2,3,4,5,6,7,8,9,10]
+print(summit(*nums))
+
+def person(name,**other):
+    print(name, 'other:', other)
+
+person('yun')
+person('dabiao',city='Beijing')
+d = {'age': 18, 'city': "chendu"}
+person('alchemist',**d)
+
+#命名关键字参数可以有缺省值
+def person2(name, age, *, city, job):
+    print(name, age, city, job)
+person2('Jack', 24, city='Beijing', job='Engineer')
+#参数定义的顺序必须是：必选参数、默认参数、可变参数、命名关键字参数和关键字参数
