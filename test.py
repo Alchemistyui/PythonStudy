@@ -101,5 +101,3 @@ while n > 0:
         continue
     
 print(sum)
-
-#2333
