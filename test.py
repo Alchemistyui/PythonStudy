@@ -47,7 +47,7 @@
 
 
 
-#4.list & tuple
+#4.list & tuple元组，不可更改
 # classmate = ['yujie','dabiao','yuge']
 # for i in [0,1,2]:
 #     print(classmate[i])
@@ -85,19 +85,48 @@
 #     print('kid')
 
 #6.循环
+# sum = 0
+# for i in list(range(101)):
+#     sum = sum + i
+# print(sum)
 
-sum = 0
-for i in list(range(101)):
-    sum = sum + i
-print(sum)
 
- 
-n = 5
+# n = 5
 
-while n > 0:
-    sum = sum + n
-    n = n - 1
-    if n == 3:
-        continue
-    
-print(sum)
+# while n > 0:
+#     sum = sum + n
+#     n = n - 1
+#     if n == 3:
+#         continue
+
+# print(sum)
+
+# #7.dict & set
+# score = {'math': 90, 'chinese': 95}
+# score['english'] = 85
+
+# print(score)
+# print('math' in score)
+# print(score.get('emm'))
+
+# score.pop('english')
+# #dict的key必须是不可变对象,
+# #在Python中，字符串、整数等都是不可变的，因此，可以放心地作为key。而list是可变的，就不能作为key
+
+
+# #set和dict类似，也是一组key的集合，但不存储value。由于key不能重复，所以，在set中，没有重复的key
+# s = set([1,2,2,3,1,4])
+# print(s)
+# s.add(5)
+# s.remove(4)
+# #set可以看成数学意义上的无序和无重复元素的集合，因此，两个set可以做数学意义上的交集、并集等操作
+# s2 = set([2, 3, 4])
+# print(s & s2)
+# print(s | s2)
+
+
+
+
+
+
+
