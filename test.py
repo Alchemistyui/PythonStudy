@@ -245,3 +245,29 @@ if list(filter(is_palindrome, range(1, 200))) == [1, 2, 3, 4, 5, 6, 7, 8, 9, 11,
     print('测试成功!')
 else:
     print('测试失败!')
+
+
+sorted(['bob', 'about', 'Zoo', 'Credit'], key=str.lower)
+sorted(['bob', 'about', 'Zoo', 'Credit'], key=str.lower, reverse=True)
+
+
+#15.类
+class Student(object):
+    def __init__(self, name, score):
+        self.__name = name
+        self.__score = score
+
+    def printMsg(self):
+        print(self.__name,' : ', self.__score)
+    def get_name(self):
+        return self.__name
+    def set_score(self, score):
+        self.__score = score
+
+
+stu = Student('bigBiao', 95)
+stu.printMsg()
+
+
+
+
