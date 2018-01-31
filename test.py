@@ -234,40 +234,90 @@
 
 #14.高阶函数
 
-def is_palindrome(n):
-    s=str(n)
-    t=s[::-1]
-    return s==t
+# def is_palindrome(n):
+#     s=str(n)
+#     t=s[::-1]
+#     return s==t
       
-output = filter(is_palindrome, range(1, 1000))
-print('1~1000:', list(output))
-if list(filter(is_palindrome, range(1, 200))) == [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 22, 33, 44, 55, 66, 77, 88, 99, 101, 111, 121, 131, 141, 151, 161, 171, 181, 191]:
-    print('测试成功!')
-else:
-    print('测试失败!')
+# output = filter(is_palindrome, range(1, 1000))
+# print('1~1000:', list(output))
+# if list(filter(is_palindrome, range(1, 200))) == [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 22, 33, 44, 55, 66, 77, 88, 99, 101, 111, 121, 131, 141, 151, 161, 171, 181, 191]:
+#     print('测试成功!')
+# else:
+#     print('测试失败!')
 
 
-sorted(['bob', 'about', 'Zoo', 'Credit'], key=str.lower)
-sorted(['bob', 'about', 'Zoo', 'Credit'], key=str.lower, reverse=True)
+# sorted(['bob', 'about', 'Zoo', 'Credit'], key=str.lower)
+# sorted(['bob', 'about', 'Zoo', 'Credit'], key=str.lower, reverse=True)
 
 
 #15.类
-class Student(object):
-    def __init__(self, name, score):
-        self.__name = name
-        self.__score = score
+# class Student(object):
+#     def __init__(self, name, score):
+#         self.__name = name
+#         self.__score = score
 
-    def printMsg(self):
-        print(self.__name,' : ', self.__score)
-    def get_name(self):
-        return self.__name
-    def set_score(self, score):
-        self.__score = score
-
-
-stu = Student('bigBiao', 95)
-stu.printMsg()
+#     def printMsg(self):
+#         print(self.__name,' : ', self.__score)
+#     def get_name(self):
+#         return self.__name
+#     def set_score(self, score):
+#         self.__score = score
 
 
+# stu = Student('bigBiao', 95)
+# stu.printMsg()
+
+#16.枚举类
+# from enum import Enum
+
+# Month = Enum('Month', ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'))
+
+# for name, member in Month.__members__.items():
+#     print(name, '=>', member, ',', member.value)
+
+# day1 = Weekday.Mon
+# print(Weekday.Tue)
+# print(Weekday['Tue'])
+# print(Weekday.Tue.value)
+# print(Weekday(1))
 
 
+#17.错误处理及调试
+import logging
+
+try:
+    r = 10 / 0
+    print('results: %d', r)
+except ZeroDivisionError as e:
+    # print('exception', e)
+    logging.exception(e)
+else:
+    print('no error!')
+finally:
+    print('finally...')
+print('END')
+
+
+class FooError(ValueError):
+    pass
+
+def foo(s):
+    n = int(s)
+    if n==0:
+        raise FooError('invalid value: %s' % s)
+    return 10 / n
+
+def bar():
+    try:
+        foo('0')
+    except ValueError as e:
+        print('ValueError!')
+        raise
+
+bar()
+
+def foo(s):
+    n = int(s)
+    assert n != 0, 'n is zero!'
+    return 10 / n
