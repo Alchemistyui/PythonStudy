@@ -241,7 +241,8 @@
       
 # output = filter(is_palindrome, range(1, 1000))
 # print('1~1000:', list(output))
-# if list(filter(is_palindrome, range(1, 200))) == [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 22, 33, 44, 55, 66, 77, 88, 99, 101, 111, 121, 131, 141, 151, 161, 171, 181, 191]:
+# if list(filter(is_palindrome, range(1, 200))) == [1, 2, 3, 4, 5, 6, 7, 8, 9, 11,
+# 22, 33, 44, 55, 66, 77, 88, 99, 101, 111, 121, 131, 141, 151, 161, 171, 181, 191]:
 #     print('测试成功!')
 # else:
 #     print('测试失败!')
@@ -271,7 +272,8 @@
 #16.枚举类
 # from enum import Enum
 
-# Month = Enum('Month', ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'))
+# Month = Enum('Month', ('Jan', 'Feb', 'Mar', 
+# 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'))
 
 # for name, member in Month.__members__.items():
 #     print(name, '=>', member, ',', member.value)
@@ -284,40 +286,110 @@
 
 
 #17.错误处理及调试
-import logging
+# import logging
 
-try:
-    r = 10 / 0
-    print('results: %d', r)
-except ZeroDivisionError as e:
-    # print('exception', e)
-    logging.exception(e)
-else:
-    print('no error!')
-finally:
-    print('finally...')
-print('END')
+# try:
+#     r = 10 / 0
+#     print('results: %d', r)
+# except ZeroDivisionError as e:
+#     # print('exception', e)
+#     logging.exception(e)
+# else:
+#     print('no error!')
+# finally:
+#     print('finally...')
+# print('END')
 
 
-class FooError(ValueError):
-    pass
+# class FooError(ValueError):
+#     pass
 
-def foo(s):
-    n = int(s)
-    if n==0:
-        raise FooError('invalid value: %s' % s)
-    return 10 / n
+# def foo(s):
+#     n = int(s)
+#     if n==0:
+#         raise FooError('invalid value: %s' % s)
+#     return 10 / n
 
-def bar():
-    try:
-        foo('0')
-    except ValueError as e:
-        print('ValueError!')
-        raise
+# def bar():
+#     try:
+#         foo('0')
+#     except ValueError as e:
+#         print('ValueError!')
+#         raise
 
-bar()
+# bar()
 
-def foo(s):
-    n = int(s)
-    assert n != 0, 'n is zero!'
-    return 10 / n
+# def foo(s):
+#     n = int(s)
+#     assert n != 0, 'n is zero!'
+#     return 10 / n
+
+
+#18.IO操作
+# try:
+#     f = open('/Users/ryshen/Desktop/OOR', 'r')
+#     print(f.read())
+# finally:
+#     if f:
+#         f.close()
+
+# with open('/Users/ryshen/Desktop/OOR', 'r') as f:
+#     print(f.read())
+
+# with open('/Users/ryshen/Desktop/OOR', 'a') as f:
+#     f.write('233')
+
+# from io import StringIO 
+
+# f = StringIO()
+# f.write('Alchemist')
+# print(f.getvalue())
+
+# while  True:
+#     s = f.read()
+#     if s == '':
+#         break
+#     print(s)
+
+
+# from io import BytesIO
+
+# f = BytesIO()
+# f.write('中文'.encode('utf-8'))
+# print(f.getvalue())
+
+# f = BytesIO(b'\xe4\xb8\xad\xe6\x96\x87')
+# s = f.read()
+# print(s)
+
+
+import os
+# print(os.environ)
+# # 查看当前目录的绝对路径:
+# os.path.abspath('.')
+# # 在某个目录下创建一个新目录，首先把新目录的完整路径表示出来:
+# os.path.join('/Users/ryshen/Desktop', 'testdir')
+# # 然后创建一个目录:
+# os.mkdir('/Users/ryshen/Desktop/testdir')
+# # 删掉一个目录:
+# os.rmdir('/Users/ryshen/Desktop/testdir')
+# print(os.path.split('/Users/ryshen/Desktop/testdir/file.txt'))
+# print(os.path.splitext('/path/to/file.txt'))
+
+# print([x for x in os.listdir('.') if os.path.isdir(x)])
+
+def findStr(str,path='.'):
+    for x in os.listdir(path):
+        fPath = os.path.join(path,f)
+        if os.path.isfile(fPath) and str in f:
+            print(fPath)
+        if os.path.isdir(fPath):
+            findFile(str,fPath)
+
+import pickle
+import json
+d = dict(name='bob', age=18, score=90)
+print(pickle.dumps(d))
+print(json.dumps(d))
+    
+
